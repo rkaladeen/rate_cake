@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { HttpService } from '../http.service';
 import { Router } from "@angular/router";
@@ -10,6 +10,7 @@ import { Router } from "@angular/router";
 })
 export class AddCakeComponent implements OnInit {
   newCake: FormGroup;
+  @Output() cakeEvent = new EventEmitter();
   constructor(private _httpService: HttpService, private router: Router) { }
 
   ngOnInit() {
@@ -27,7 +28,8 @@ export class AddCakeComponent implements OnInit {
     let cakeObservable = this._httpService.createCake(cake);
     cakeObservable.subscribe(data => {
       console.log(data);
-      this.router.navigate(['/']);
+      this.ngOnInit();
+      // this.router.navigate(['/']);
     })
   }
 }

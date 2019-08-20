@@ -1,6 +1,6 @@
 <div class="h-100">
   <div class="row jumbotron p-2 mb-2 shadow-sm" *ngFor="let cake of cakes; index as i">
-    <button class="col-sm-6 btn"><img class="w-100" src="{{ cakes[i].img_url }}" alt="{{ cakes[i].img_url }}" (click)=viewCake(cakes[i]._id)></button>
+    <button class="col-sm-6 btn"><img class="w-100" src="{{ cakes[i].img_url }}" alt="{{ cakes[i].img_url }}" (click)=viewCake(cakes[i])></button>
     <div class="col-sm-6 mt-5">
         <a class="d-inline fas fa-star text-warning"></a>
         <a class="d-inline fas fa-star text-warning"></a>
@@ -8,29 +8,10 @@
         <a class="d-inline fas fa-star text-warning"></a>
         <a class="d-inline fas fa-star text-warning"></a>
         
-
-      <form>
-        <select class="custom-select" 
-                >
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-          <option value="4">Four</option>
-          <option value="5">Five</option>
-        </select>
-        <textarea class="form-control" 
-
-                  rows="3" 
-                  placeholder="Type you comment here" 
-                 ></textarea>
-        <button type="submit" class="btn btn-outline-secondary">Rate!</button>
-      </form>
+      <review [cakeToReview]="cakes[i]" (cakeEvent)="reviewEvent($event)"></review>
+      
     </div>
   </div> <!--End of cake list-->
 </div>
 
-<!-- (submit)="submitReview(cakes[i]._id)" -->
 
-<!-- name="review.ratings" [(ngModel)]="review.ratings"
-
-name="review.comment"  [(ngModel)]="review.comment" -->

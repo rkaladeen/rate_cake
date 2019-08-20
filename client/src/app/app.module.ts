@@ -10,13 +10,15 @@ import { AppComponent } from './app.component';
 import { AddCakeComponent } from './add-cake/add-cake.component';
 import { ViewCakeComponent } from './view-cake/view-cake.component';
 import { AllCakesComponent } from './all-cakes/all-cakes.component';
+import { ReviewComponent } from './review/review.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddCakeComponent,
     ViewCakeComponent,
-    AllCakesComponent
+    AllCakesComponent,
+    ReviewComponent
   ],
   imports: [
     BrowserModule, 

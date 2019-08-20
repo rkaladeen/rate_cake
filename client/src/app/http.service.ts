@@ -23,8 +23,12 @@ export class HttpService {
     return this._http.put(`/cakes/${updateCake['_id']}`, updateCake);
   }
 
-  deleteCake(deleteCake: String) {
-    return this._http.delete(`/cakes/${deleteCake}`);
+  deleteCake(cake_id: String) {
+    return this._http.delete(`/cakes/${cake_id}`);
+  }
+
+  reviewCake(reviewData: Object) {
+    return this._http.put(`/cakes/review/${reviewData['_id']}`, reviewData)
   }
 
 }

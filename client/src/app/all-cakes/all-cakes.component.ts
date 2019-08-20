@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { HttpService } from '../http.service';
+
 
 
 @Component({
@@ -10,7 +11,8 @@ import { HttpService } from '../http.service';
 })
 export class AllCakesComponent implements OnInit {
   cakes: any;
-  reviews: any;
+  @Output() cakeViewEvent = new EventEmitter();
+
   constructor(private _httpService: HttpService) { }
 
   ngOnInit() {
@@ -21,11 +23,9 @@ export class AllCakesComponent implements OnInit {
     })
   }
 
-  submitReview(cake_id: String) {
-    console.log("Review Submitted");
-  }
-
-  viewCake(cake_id: String) {
+  viewCake(cake: any) {
     console.log("View Cake Clicked")
+    // console.log(cake)
+    this.cakeViewEvent.emit(cake);
   }
 }

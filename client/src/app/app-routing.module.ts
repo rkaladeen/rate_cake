@@ -11,6 +11,7 @@ import { AddCakeComponent } from './add-cake/add-cake.component';
 
 const routes: Routes = [
   { path: '', component: AppComponent },
+  { path: '**', component: AppComponent }
 ];
 
 @NgModule({

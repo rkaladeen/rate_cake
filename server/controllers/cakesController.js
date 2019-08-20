@@ -28,9 +28,10 @@ class CakeController {
           .catch(err => res.json(err));
   }
   review(req, res){
-    Cake.findOneAndUpdate({_id: req.params._id}, {$push: { ratings: req.body.ratings, comment: req.body.comment }})
-          .then((cake) => res.json({status: "review added"}))
+    Cake.findOneAndUpdate({_id: req.params._id}, {$push: { reviews: {ratings: req.body.ratings, comment: req.body.comment} }},  {runValidators: true})
+          .then(() => res.json({status: "review added"}))
           .catch(err => res.json(err));
+    
   }
 }
 

@@ -5,10 +5,10 @@
       <add-cake></add-cake>
     </div>
     <div class="col-md-8">
-      <all-cakes></all-cakes>
+      <all-cakes (cakeViewEvent)="viewCake($event)"></all-cakes>
     </div>
   </div>
-  <view-cake></view-cake>
+  <view-cake [cakeToView]="cake"></view-cake>
 
 </div>
 

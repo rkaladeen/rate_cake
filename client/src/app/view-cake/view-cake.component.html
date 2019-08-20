@@ -1,13 +1,40 @@
 <div class="jumbotron p-3 shadow row">
-  <!-- <h2>Baked by {{ cake.baker }}</h2> -->
+  <h2>Baked by {{ cakeToView.baker }}</h2>
   <div class="row">
-    <!-- <div class="col-md-6"><img src="{{ cake.img_url }}" alt="{{ cake.img_url }}"></div> -->
+    <div class="col-md-6"><img class="w-100" src="{{ cakeToView.img_url }}" alt="{{ cakeToView.img_url }}"></div>
     <div class="col-md-6">
-      <p>Average Rating: </p>
-      <!-- <div class="jumbotron m-2" *ngFor="let review of cake['reviews']">
-        <p>{{ review.comment }}</p>
-        <p>{{ review.ratings }} Stars</p>
-      </div> -->
+      <p ng-init=getAverage()>Average Rating: {{ avg }}</p>
+      <div class="jumbotron bg-light p-2 m-2" *ngFor="let view of cakeToView.reviews; index as i">
+        <p>{{ cakeToView.reviews[i].comment }}</p>
+
+        <div *ngIf="cakeToView.reviews[i].ratings == 5">
+          <i class="d-inline fas fa-star text-warning"></i>
+          <i class="d-inline fas fa-star text-warning"></i>
+          <i class="d-inline fas fa-star text-warning"></i>
+          <i class="d-inline fas fa-star text-warning"></i>
+          <i class="d-inline fas fa-star text-warning"></i>
+        </div>
+        <div *ngIf="cakeToView.reviews[i].ratings == 4">
+          <i class="d-inline fas fa-star text-warning"></i>
+          <i class="d-inline fas fa-star text-warning"></i>
+          <i class="d-inline fas fa-star text-warning"></i>
+          <i class="d-inline fas fa-star text-warning"></i>
+        </div>
+        <div *ngIf="cakeToView.reviews[i].ratings == 3">
+          <i class="d-inline fas fa-star text-warning"></i>
+          <i class="d-inline fas fa-star text-warning"></i>
+          <i class="d-inline fas fa-star text-warning"></i>
+        </div>
+        <div *ngIf="cakeToView.reviews[i].ratings == 2">
+          <i class="d-inline fas fa-star text-warning"></i>
+          <i class="d-inline fas fa-star text-warning"></i>
+          
+        </div>
+        <div *ngIf="cakeToView.reviews[i].ratings == 1">
+          <i class="d-inline fas fa-star text-warning"></i>
+        </div>
+        
+      </div>
 
     </div>
   </div>
